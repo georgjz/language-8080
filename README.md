@@ -1,6 +1,6 @@
-# 6809/6309 Assembly Language Support in Atom
+# Intel 8080 Assembly Language Support in Atom
 
-Adds language support for Motorola 6809 assembly to the [Atom Editor](https://atom.io). This is useful for writing code for the Vectrex.
+Adds language support for Intel 8080 assembly to the [Atom Editor](https://atom.io). This is useful for writing code for the Vectrex.
 
 This package contains the mnemonics for the
 [Motorola 6809](https://en.wikipedia.org/wiki/Motorola_6809) and
