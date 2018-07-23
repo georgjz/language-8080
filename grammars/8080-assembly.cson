@@ -8,68 +8,24 @@ fileTypes: [
 ]
 patterns: [
   # The basic 8080 instruction set
-  { include: '#mnemonics-m8080' }
+  { include: '#mnemonics-i8080' }
 ]
 
 # start of repository ----------------------------------------------------------
 repository:
-
   # Intel 8080 Basic Instruction Set
-  'mnemonics-m8080':
+  'mnemonics-i8080':
     patterns: [
-      # ADC, ADD, AND
       {
-        match: '\\b(?i)(a[dn][cd][abd])\\b'
+        match: '\\b(?i)([cjr]n?[cz]|[cr]p[eio]?|cm[acp]?|call|jmp|j[mp]|jp[eo])\\b'
         name: 'keyword.mnemonic.8080-assembly'
       }
-      # arithmetic and logical shift
       {
-        match: '\\b(?i)([al]s[lr]([ab])?)\\b'
+        match: '\\b(?i)(stc|stax?|ldax?|xchg|xthl|sphl|pchl|da[ad]|dc[rx]|aci|ad[cdi]|an[ai]|s[bu][bi]|[ox]r[ai])\\b'
         name: 'keyword.mnemonic.8080-assembly'
       }
-      # A and B
       {
-        match: '\\b(?i)((bit|eor|or|sbc)[ab])\\b'
-        name: 'keyword.mnemonic.8080-assembly'
-      }
-      # A, B and D
-      {
-        match: '\\b(?i)((sub)[abd])\\b'
-        name: 'keyword.mnemonic.8080-assembly'
-      }
-      # A, B, D, S, U, X and Y
-      {
-        match: '\\b(?i)((cmp|ld|st)[abdsuxy])\\b'
-        name: 'keyword.mnemonic.8080-assembly'
-      }
-      # S, U, X and Y
-      {
-        match: '\\b(?i)((lea)[suxy])\\b'
-        name: 'keyword.mnemonic.8080-assembly'
-      }
-      # S and U
-      {
-        match: '\\b(?i)((psh|pul)[su])\\b'
-        name: 'keyword.mnemonic.8080-assembly'
-      }
-      # A, B, and register
-      {
-        match: '\\b(?i)((clr|com|dec|inc|neg|tst)([ab])?)\\b'
-        name: 'keyword.mnemonic.8080-assembly'
-      }
-      # rotate
-      {
-        match: '\\b(?i)(ro[lr]([ab])?)\\b'
-        name: 'keyword.mnemonic.8080-assembly'
-      }
-      # branch
-      {
-        match: '\\b(?i)((l)?b[ceghlmnprsv][aceilnoqrst])'
-        name: 'keyword.mnemonic.8080-assembly'
-      }
-      # special/misc
-      {
-        match: '\\b(?i)(abx|daa|exg|mul|sex|tfr|cwai|andcc|nop|orcc|jmp|jsr|rti|rts|(swi([23])?)|sync)\\b'
+        match: '\\b(?i)(ret|rst|in[rx]?|out|lxi|push|pop|mov|hlt|mov|mvi|r[lr]c|ra[lr]|shld|lhld|[de]i|nop)\\b'
         name: 'keyword.mnemonic.8080-assembly'
       }
     ]
