@@ -44,7 +44,7 @@ repository:
       }
       # hex, suffixed with h(h)
       {
-        match: '-?([0-9]+)h'
+        match: '-?\\b([0-9a-fA-F]+)h\\b'
         name: 'constant.numeric.hex.asm8080'
       }
       # binary
@@ -66,5 +66,15 @@ repository:
       {
         match: '\\b(?i)(org|end|include|d[bsw]|equ|set|if|else|endif|macro|endm)\\b'
         name: 'support.function.pseudo.asm8080'
+      }
+      # Operators
+      {
+        match:  '!|&|&&|\\^|\\*|\\/|\\-|\\+|~|=|<=|>=|<<|>>|<>|<|>|\\||\\|\\|'
+        name:   'keyword.operator.cc65-directives'
+      }
+      # Operators II
+      {
+        match:  '\\b(?i:and|not|or|xor|low|high|mod|shl|shr|eq|ne|lt|le|gt|ge)\\b'
+        name:   'keyword.operator.cc65-directives'
       }
     ]

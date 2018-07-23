@@ -23,7 +23,7 @@ repository:
       # asterix and semicolon comments
       {
         match: ';.*$'
-        name: 'comment.line.semicolon.asm8080'
+        name: 'comment.line.semicolon.pretty8080'
       }
     ]
 
@@ -32,11 +32,11 @@ repository:
     patterns: [
       # strings
       {
-        begin: '"'
+        begin: '[\'"]'
         beginCaptures:
           0:
             name: 'punctuation.definition.string.begin.asm8080'
-        end: '"'
+        end: '[\'"]'
         endCaptures:
           0:
             name: 'punctuation.definition.string.end.asm8080'
@@ -44,7 +44,7 @@ repository:
       }
       # hex, suffixed with h(h)
       {
-        match: '-?([0-9]+)h'
+        match: '-?\\b([0-9a-fA-F]+)h\\b'
         name: 'constant.numeric.hex.asm8080'
       }
       # binary
@@ -59,17 +59,17 @@ repository:
       }
     ]
 
-  # assembler directives of asm8080
+  # assembler directives of pretty8080
   directives:
     patterns: [
       # assembler directives
       {
-        match: '\\.\\b(?i)(org|hexfile|binfile|download|tape|objcopy|postbuild|nodump)\\b'
-        name: 'support.function.pseudo.asm8080'
+        match: '(\\.)\\b(?i:org|hexfile|binfile|download|tape|objcopy|postbuild|nodump)\\b'
+        name: 'support.function.pseudo.pretty8080'
       }
       # assembler directives
       {
-        match: '\\b(?i)(equ|db(64)?|)\\b'
-        name: 'support.function.pseudo.asm8080'
+        match: '\\b(?i)(equ|db(64)?)\\b'
+        name: 'support.function.pseudo.pretty8080'
       }
     ]

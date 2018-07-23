@@ -11,6 +11,6 @@ This package includes syntax highlighting for assembler directives, labels, etc.
 Toolchain | Link | Platforms
 ----------|------|------
 asm8080 | https://github.com/begoon/asm8080 | Linux, Windows, OS X
-Pretty 8080 Assembler | https://github.com/svofski/pretty-8080-assembler | Web
+Pretty 8080 Assembler | https://github.com/svofski/pretty-8080-assembler | JavaScript, Web
 
 I'm happy to add more assemblers as requested. Please use Github's issue function to report bugs or improvement ideas. Contributions are greatly appreciated!
