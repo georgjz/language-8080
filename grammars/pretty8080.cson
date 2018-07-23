@@ -1,0 +1,75 @@
+# Syntax highlighting for pretty 8080 assembler toolchain
+
+scopeName: 'source.pretty8080'
+name: 'Pretty 8080 Assembler'
+fileTypes: [
+  's'
+  'S'
+  'asm'
+]
+patterns: [
+  { include: 'source.8080-assembly' }   # 8080 instruction set
+  { include: '#comments' }              # Comments
+  { include: '#symbols' }               # Symbols, strings and numbers
+  { include: '#directives' }            # Assembler directives for lwtools
+]
+
+# start of repository
+repository:
+
+  # Comments supported by lwtools
+  comments:
+    patterns: [
+      # asterix and semicolon comments
+      {
+        match: ';.*$'
+        name: 'comment.line.semicolon.asm8080'
+      }
+    ]
+
+  # Number formats accepted by lwtools
+  symbols:
+    patterns: [
+      # strings
+      {
+        begin: '"'
+        beginCaptures:
+          0:
+            name: 'punctuation.definition.string.begin.asm8080'
+        end: '"'
+        endCaptures:
+          0:
+            name: 'punctuation.definition.string.end.asm8080'
+        name: 'string.quoted.double.assembly.asm8080'
+      }
+      # hex, suffixed with h(h)
+      {
+        match: '-?([0-9]+)h'
+        name: 'constant.numeric.hex.asm8080'
+      }
+      # binary
+      # {
+      #   match: '%[01]+'
+      #   name: 'constant.numeric.binary.asm8080'
+      # }
+      # decimal
+      {
+        match: '\\b([0-9]+)\\b'
+        name: 'constant.numeric.decimal.asm8080'
+      }
+    ]
+
+  # assembler directives of asm8080
+  directives:
+    patterns: [
+      # assembler directives
+      {
+        match: '\\.\\b(?i)(org|hexfile|binfile|download|tape|objcopy|postbuild|nodump)\\b'
+        name: 'support.function.pseudo.asm8080'
+      }
+      # assembler directives
+      {
+        match: '\\b(?i)(equ|db(64)?|)\\b'
+        name: 'support.function.pseudo.asm8080'
+      }
+    ]
