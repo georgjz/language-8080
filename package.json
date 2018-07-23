@@ -1,6 +1,6 @@
 {
   "name": "language-8080",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Adds language support for Intel 8080 assembly. Useful for Altair 8800 or IMSAI 8080 development.",
   "keywords": [
     "8080",
